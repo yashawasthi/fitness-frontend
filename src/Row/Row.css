@@ -1,0 +1,33 @@
+.row
+{
+    font-size: 1 rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 1px;
+    padding: 10px 10px;
+}
+.date-holder
+{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weight-holder
+{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-holder
+{
+    flex:1;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}

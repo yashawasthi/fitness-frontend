@@ -1,0 +1,51 @@
+
+.form
+{
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #e4e0df;
+  margin-bottom: 1px;
+  padding: 10px 10px;
+}
+.input-container
+{
+  flex: 2;
+  display: flex;
+}
+.input-weight-container{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.input-date-container{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.input-date
+{
+  border: 0;
+  font-size: 1 rem;
+  font-weight: 600;
+  width: 30%;
+}
+.input-weight
+{
+  border: 0;
+  font-size: 1 rem;
+  font-weight: 600;
+  width: 50%;
+}
+input[type="text"], input[type="password"], textarea, select { 
+  outline: none;
+}
+
+
+.button-holder-submit
+{
+    flex:1;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    
+}
