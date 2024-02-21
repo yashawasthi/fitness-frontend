@@ -7,7 +7,7 @@ import Form from "../Form/Form";
 import { ApiContext } from "../MyContext";
 
 function App() {
-  const {entries, getEntries,setEntries,addEntry} =useContext(ApiContext);
+  const {entries, getEntries,isLoading} =useContext(ApiContext);
 
   useEffect(() => {
     getEntries();
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className="app-container">
-      {entries.length > 0 ? (
+      {isLoading==false ? (
         <div className="container">
           <div className="content-container">
             <Form />

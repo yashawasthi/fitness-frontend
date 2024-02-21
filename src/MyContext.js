@@ -5,6 +5,7 @@ const ApiContext = createContext();
 
 const ApiProvider = ({ children }) => {
   const [entries, setEntries] = useState([]);
+  const [isLoading,setIsLoading]=useState(true);
 
   const getEntries = async () => {
     try {
@@ -15,7 +16,10 @@ const ApiProvider = ({ children }) => {
         })
         .then((response) => {
           setEntries(response);
-        });
+        })
+        .then(()=>{
+          setIsLoading(false);
+        })
     } catch (error) {
       console.error('Error fetching entries:', error);
     }
@@ -23,14 +27,19 @@ const ApiProvider = ({ children }) => {
 
   const addEntry = async (date,weight) => {
     try {
+        setIsLoading(true);
         const response=await axios.post('https://fitness-backend-eta.vercel.app/saveEntry',{
             date,
             weight
         }).then((response)=>{
           return response.data;
         })
-        console.log(response)
-      setEntries([...entries, response.data]);
+        .then((response)=>{
+          setEntries([...entries, response.data]);
+        })
+        .then(()=>{
+          setIsLoading(false);
+        })
     } catch (error) {
       console.error('Error adding entry:', error);
     }
@@ -50,14 +59,17 @@ const ApiProvider = ({ children }) => {
 
   const deleteEntry = async (id) => {
     try {
+      setIsLoading(true);
         await axios.delete(`https://fitness-backend-eta.vercel.app/entries/${id}`,{
             id
           }).then(()=>{
-
             const updatedEntries = entries.filter(entry => entry._id != id);
-            console.log(updatedEntries)
             setEntries(updatedEntries);
           })
+          .then(()=>{
+            setIsLoading(false);
+          })
+          
     } catch (error) {
       console.error('Error deleting entry:', error);
     }
@@ -70,7 +82,8 @@ const ApiProvider = ({ children }) => {
         getEntries,
         addEntry,
         updateEntry,
-        deleteEntry
+        deleteEntry,
+        isLoading
       }}
     >
       {children}
