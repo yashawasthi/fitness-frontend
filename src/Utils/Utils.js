@@ -25,4 +25,50 @@ function getRandomColor() {
     }
   }
 
-  export {getRandomColor};
+function OrderDatesInAscending(data)
+{
+  return data.sort((a, b) => 
+  {
+    const dateA=new Date(a.date);
+    const dateB=new Date(b.date);
+
+    const c= dateA-dateB;
+    return c;
+  });
+}
+function OrderDatesInDescending(data)
+{
+  return data.sort((a, b) => 
+  {
+    const dateA=new Date(a.date);
+    const dateB=new Date(b.date);
+
+    const c= dateB-dateA;
+    return c;
+  });
+}
+
+function OrderWeightsInAscending(data)
+{
+  return data.sort((a, b) => 
+  {
+    const weightA=a.weight
+    const weightB=b.weight
+    const c= weightA-weightB;
+    return c;
+  });
+}
+
+function OrderWeightsInDescending(data)
+{
+  return data.sort((a, b) => 
+  {
+    const weightA=a.weight
+    const weightB=b.weight
+    const c= weightB-weightA;
+    return c;
+  });
+}
+
+  export {getRandomColor,OrderDatesInAscending,OrderDatesInDescending,OrderWeightsInAscending,OrderWeightsInDescending};
+

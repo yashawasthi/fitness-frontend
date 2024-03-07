@@ -1,0 +1,23 @@
+.sort-buttons{
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    padding: 5px 0;
+}
+/* .sort-button
+{
+    background-color: rgb(219, 85, 245);
+    color: rgb(255, 255, 255);
+    min-width: 10rem;
+    max-width: 10rem;
+} */
+/* .sort-button:hover
+{
+    background-color: rgb(112, 35, 128);
+    color: rgb(255, 255, 255);
+} */
+#hidden-button{
+    visibility: hidden;
+}

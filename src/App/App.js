@@ -5,6 +5,7 @@ import axios from "axios";
 import Loader from "../Loader/Loader";
 import Form from "../Form/Form";
 import { ApiContext } from "../MyContext";
+import SortButtons from "../SortButtons/SortButtons";
 
 function App() {
   const {entries, getEntries,isLoading} =useContext(ApiContext);
@@ -20,16 +21,9 @@ function App() {
         <div className="container">
           <div className="content-container">
             <Form />
+            <SortButtons />
             <div>
               {entries.map((value) => {
-
-                // console.table({
-                //   key:value._id,
-                //   weight:value.weight,
-                //   date:value.date,
-                //   id:value._id
-                // });
-
                 return (
                   <Row
                     key={value._id}
